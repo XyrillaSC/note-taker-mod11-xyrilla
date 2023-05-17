@@ -10,7 +10,6 @@ const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
 app.use(express.static('public'));
 
 // Promise version of fs.readFile
@@ -78,6 +77,10 @@ app.post('/api/notes', (req, res) => {
   }
 });
 
+// delete for notes db
+app.delete(`/api/notes/:id`, (req, res) => {
+  console.log(`Deleting now`)
+})
 
 
 app.listen(PORT, () =>
